@@ -30,6 +30,8 @@ const SignUp = () => {
     const enteredPassword = passwordInputRef.current.value;
     const enteredConfirmPassword = confirmPasswordInputRef.current.value;
 
+
+    //Checking whether passwords matched or not and then calling the function
     if (enteredPassword === enteredConfirmPassword){
         dispatch(signupUser({email: enteredEmail, password: enteredPassword, apiKey}))
     }else{
@@ -39,6 +41,7 @@ const SignUp = () => {
   };
 
 
+   //To navigate the user based on the whether signup successful or not
   useEffect(() => {
 
     if (isSignedUp) {

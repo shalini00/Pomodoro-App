@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from 'react-redux';
 import Tasks from "../Tasks/Tasks";
 import './Timer.css'
@@ -6,29 +6,28 @@ import './Timer.css'
 
 function Timer() {
 
-  
+
     const time = useSelector(state => state.timer);
 
-
+    //State variables defined for timer
     const [secondsLeft, setSecondsLeft] = useState(time.pomodoroMin * 60);
     const [mode, setMode] = useState('pomodoro')
     const [isPaused, setIsPaused] = useState(true);
     const [count, setCount] = useState(0)
 
 
-
+    //switching the mode from pomodoro to shortbreak or longbreak
+    //count is used for executing longbreakTimer after 4 intervals
     function switchMode() {
-        if (count < 3) {
+        if (count < 4) {
             const nextMode = mode === 'pomodoro' ? 'short-break' : 'pomodoro'
             const nextSeconds = (nextMode === 'pomodoro' ? time.pomodoroMin : time.shortBreakMin) * 60;
 
 
-       
             setMode(nextMode);
-          
             setSecondsLeft(nextSeconds);
             setCount(prev => prev + 1);
-            console.log(count)
+
         } else {
             setSecondsLeft(time.longBreakMin * 60)
             setCount(0);
@@ -39,17 +38,20 @@ function Timer() {
 
     }
 
+
+    //function for Starting the timer
     function startTimer() {
-    
         setSecondsLeft(prev => prev - 1);
     }
 
+
+    //To handle start stop of timer
     const clickHandler = () => {
-        
         setIsPaused(prev => !prev);
     }
 
 
+    //starting the timer based on the dependencies
     useEffect(() => {
 
         const timer = setInterval(() => {
@@ -70,8 +72,10 @@ function Timer() {
     }, [time, isPaused, secondsLeft]);
 
 
+    //assigning values for time
     let minutes = Math.floor(secondsLeft / 60);
     let seconds = secondsLeft % 60;
+
     if (seconds < 10) seconds = '0' + seconds;
     if (minutes < 10) minutes = '0' + minutes;
 
@@ -81,9 +85,10 @@ function Timer() {
         <>
             <div className="timer-container">
                 <div className="options">
-                    <button onClick={() => setSecondsLeft(time.pomodoroMin * 60)}>Pomodoro</button>
-                    <button onClick={() => setSecondsLeft(time.shortBreakMin * 60)}>Short Break</button>
-                    <button onClick={() => setSecondsLeft(time.longBreakMin * 60)}>Long Break</button>
+                    
+                    <button onClick={() => {setSecondsLeft(time.pomodoroMin * 60); setIsPaused(true)}}>Pomodoro</button>
+                    <button onClick={() => {setSecondsLeft(time.shortBreakMin * 60); setIsPaused(true)}}>Short Break</button>
+                    <button onClick={() => {setSecondsLeft(time.longBreakMin * 60); setIsPaused(true)}}>Long Break</button>
 
 
                 </div>

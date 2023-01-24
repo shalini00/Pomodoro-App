@@ -10,7 +10,8 @@ import Settings from './components/Pomodoro/Settings';
 import { useSelector } from 'react-redux';
 
 function App() {
-
+ 
+  //using isLoggedIn to render the only component which is required
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
 
   return (
@@ -29,6 +30,8 @@ function App() {
           <SignUp />
         </Route>
 
+
+       
         {isLoggedIn &&
           (
             <Route path="/settings" exact>
@@ -36,7 +39,7 @@ function App() {
             </Route>
           )
         }
-
+   
         <Route path='*'>
           <Redirect to='/' />
         </Route>

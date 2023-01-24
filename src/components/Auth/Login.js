@@ -22,9 +22,11 @@ const Login = () => {
     const submitHandler = (event) => {
         event.preventDefault();
 
+        //email and password b=values
         const enteredEmail = emailInputRef.current.value;
         const enteredPassword = passwordInputRef.current.value;
 
+        //Dispatching function once user submit the login form
         dispatch(loginUser({ email: enteredEmail, password: enteredPassword, apiKey }));
 
 
@@ -32,6 +34,7 @@ const Login = () => {
     };
 
   
+    //To navigate the user based on the whether login successful or not
     useEffect(() => {
 
         if (isLoggedIn) {

@@ -4,6 +4,8 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 const FIREBASE_DOMAIN = 'https://react-pomodoro-fd925-default-rtdb.firebaseio.com';
 
+
+//For Adding tasks into database
 export const addTasks = createAsyncThunk('addtasks', async ({ enteredTask, id }, thunkAPI) => {
     try {
         const response = await fetch(`${FIREBASE_DOMAIN}/tasks/${id}.json`, {
@@ -29,7 +31,7 @@ export const addTasks = createAsyncThunk('addtasks', async ({ enteredTask, id },
 });
 
 
-
+//getting tasks from db
 export const getTasks = createAsyncThunk('gettasks', async ( id , thunkAPI) => {
     try {
         const response = await fetch(`${FIREBASE_DOMAIN}/tasks/${id}.json`)

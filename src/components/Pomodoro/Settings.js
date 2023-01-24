@@ -4,19 +4,21 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import './Settings.css';
 
-function Settings(props) {
+function Settings() {
 
     const dispatch = useDispatch();
     const time = useSelector(state => state.timer);
 
     const history = useHistory();
 
+    //when user apply the changes
     const submitHandler = (e) => {
        e.preventDefault();
        history.replace('/');
 
     }
-
+ 
+    //When user cancel the changes
     const cancelHandler = () => {
         history.replace('/');
 

@@ -26,6 +26,7 @@ const timerSlice = createSlice({
             state.longBreakMin = action.payload
         },
     },
+    
     extraReducers: {
         [addTasks.fulfilled]: (state, { payload }) => {
             state.isTaskAdded = true;

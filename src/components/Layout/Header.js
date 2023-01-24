@@ -8,10 +8,12 @@ const Header = () => {
 
 
 
-    const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
+    const isLoggedIn = useSelector(state => state.auth.isLoggedIn);   //To render the options based on whether user is login or not
+
     const dispatch = useDispatch();
     const history = useHistory();
 
+    
     const logoutHandler = () => {
         dispatch(logout());
         history.replace("/login");
@@ -25,14 +27,11 @@ const Header = () => {
             </Link>
             <nav>
                 <ul>
-
-
-
                     {isLoggedIn
                         ? <li>
                             <Link to="/settings">Settings</Link>
                             <button onClick={logoutHandler} className='btn-logout'>Logout</button>
-                            
+
                         </li>
                         : <li>
 
