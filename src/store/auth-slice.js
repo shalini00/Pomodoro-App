@@ -3,7 +3,7 @@ import { signupUser, loginUser } from "./authActions";
 
 
 const initialState = {
-    token: null,
+    token: localStorage.getItem('token'),
     email: "",
     isLoggedIn: false,
     isFetching: false,
@@ -25,9 +25,7 @@ export const authSlice = createSlice({
         state.isError = false;
         localStorage.removeItem("token")
        },
-       authHandler: (state) => {
-          state.isLoggedIn = true;
-       }
+      
 
     },
     extraReducers: {
@@ -44,7 +42,7 @@ export const authSlice = createSlice({
             
           },
           [signupUser.rejected]: (state, { payload }) => {
-            console.log('payload', payload);
+            // console.log('payload', payload);
             state.isFetching = false;
             state.isError = true;
             state.errorMessage = payload.error.message;
@@ -60,7 +58,7 @@ export const authSlice = createSlice({
             return state;
           },
           [loginUser.rejected]: (state, { payload }) => {
-            console.log('payload', payload);
+            // console.log('payload', payload);
             state.isFetching = false;
             state.isError = true;
             state.errorMessage = payload.error.message;

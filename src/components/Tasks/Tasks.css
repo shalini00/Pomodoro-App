@@ -1,4 +1,4 @@
-.buttons{
+.task-btn{
     margin-top: 30px;
     border: none;
     background-color: black;
@@ -7,5 +7,4 @@
     border-radius: 5px;
     width: 5rem;
     font-size: large;
-    
 }

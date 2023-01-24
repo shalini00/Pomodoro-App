@@ -2,13 +2,12 @@ import { useRef, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import {  loginUser } from '../../store/authActions';
 import { useDispatch, useSelector } from 'react-redux';
-
 import './Auth.css';
-import { authHandler } from '../../store/auth-slice';
+
 
 const Login = () => {
 
-    const apiKey = process.env.REACT_POMODORO_API;
+    const apiKey = process.env.REACT_APP_POMODORO_API;
 
     const emailInputRef = useRef();
     const passwordInputRef = useRef();
@@ -32,10 +31,7 @@ const Login = () => {
 
     };
 
-    const loginHandler = () => {
-        dispatch(authHandler());
-    }
-
+  
     useEffect(() => {
 
         if (isLoggedIn) {
@@ -68,7 +64,7 @@ const Login = () => {
                 </div>
                 <div className='actions'>
 
-                    <button onClick={loginHandler}>Login</button>
+                    <button >Login</button>
 
 
                 </div>

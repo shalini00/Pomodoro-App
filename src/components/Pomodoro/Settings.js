@@ -1,8 +1,8 @@
 import React from 'react';
-import './Settings.css';
 import { timerActions } from '../../store/timer-slice';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import './Settings.css';
 
 function Settings(props) {
 
@@ -38,8 +38,8 @@ function Settings(props) {
             </div>
             <div className='settings-actions'>
 
-                <button type='submit'>Apply</button>
-                <button onClick={cancelHandler}>Cancel</button>
+                <button type='submit' className='setting-button'>Apply</button>
+                <button onClick={cancelHandler} className='setting-button'>Cancel</button>
 
 
             </div>

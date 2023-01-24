@@ -1,20 +1,35 @@
 .settings-container{
-    /* border: 1px solid black; */
-    /* height: 15rem; */
-    /* width: 20rem; */
+   
     margin-top: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* justify-content: center; */
+    
     padding: 2rem;
 }
 
 .settings-options{
     padding: 0.5rem;
+    font-size: 1.5rem;
 }
 
 
 .settings-options > input{
     margin-left: 0.5rem;
+    width: 10rem;
+    height: 1.5rem;
+}
+
+
+
+.setting-button{
+    margin-top: 30px;
+    border: none;
+    background-color: rgb(35, 34, 34);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    width: 5rem;
+    font-size: large;
+    margin: 1rem;
 }

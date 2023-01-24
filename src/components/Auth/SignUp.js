@@ -8,7 +8,7 @@ import { signupUser } from '../../store/authActions';
 
 const SignUp = () => {
 
-    const apiKey = process.env.REACT_POMODORO_API;
+    const apiKey = process.env.REACT_APP_POMODORO_API;
   
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
