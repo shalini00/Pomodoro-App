@@ -1,8 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-export const signupUser = createAsyncThunk('signupuser', async ({ email, password}, thunkAPI) => {
+export const signupUser = createAsyncThunk('signupuser', async ({ email, password, apiKey}, thunkAPI) => {
     try {
-        const response = await fetch(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyD0yIL4vmMCZsgxio1aX_IkxlvLNYsyEpU`, {
+        const response = await fetch(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${apiKey}`, {
             method: 'POST',
             body: JSON.stringify({
                 email,
@@ -33,10 +33,10 @@ export const signupUser = createAsyncThunk('signupuser', async ({ email, passwor
 
 export const loginUser = createAsyncThunk(
     "users/login",
-    async ({ email, password }, thunkAPI) => {
+    async ({ email, password, apiKey }, thunkAPI) => {
       try {
         const response = await fetch(
-          "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyD0yIL4vmMCZsgxio1aX_IkxlvLNYsyEpU",
+          `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${apiKey}`,
           {
             method: 'POST',
             body: JSON.stringify({

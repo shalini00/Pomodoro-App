@@ -7,6 +7,8 @@ import { signupUser } from '../../store/authActions';
 
 
 const SignUp = () => {
+
+    const apiKey = process.env.REACT_POMODORO_API;
   
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
@@ -29,7 +31,7 @@ const SignUp = () => {
     const enteredConfirmPassword = confirmPasswordInputRef.current.value;
 
     if (enteredPassword === enteredConfirmPassword){
-        dispatch(signupUser({email: enteredEmail, password: enteredPassword}))
+        dispatch(signupUser({email: enteredEmail, password: enteredPassword, apiKey}))
     }else{
         alert("Password didn't match");
     }

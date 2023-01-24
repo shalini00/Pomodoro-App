@@ -1,0 +1,20 @@
+.settings-container{
+    /* border: 1px solid black; */
+    /* height: 15rem; */
+    /* width: 20rem; */
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    padding: 2rem;
+}
+
+.settings-options{
+    padding: 0.5rem;
+}
+
+
+.settings-options > input{
+    margin-left: 0.5rem;
+}

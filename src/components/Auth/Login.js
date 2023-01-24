@@ -8,6 +8,8 @@ import { authHandler } from '../../store/auth-slice';
 
 const Login = () => {
 
+    const apiKey = process.env.REACT_POMODORO_API;
+
     const emailInputRef = useRef();
     const passwordInputRef = useRef();
 
@@ -24,7 +26,7 @@ const Login = () => {
         const enteredEmail = emailInputRef.current.value;
         const enteredPassword = passwordInputRef.current.value;
 
-        dispatch(loginUser({ email: enteredEmail, password: enteredPassword }));
+        dispatch(loginUser({ email: enteredEmail, password: enteredPassword, apiKey }));
 
 
 
